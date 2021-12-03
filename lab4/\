@@ -1,0 +1,79 @@
+#include <iostream>
+#include <limits>
+using namespace std;
+
+int main() {
+	
+	string action;
+	double Cmile=0, Cgal=0, Tmile=0, Tgal=0, CMtotal, TMtotal, CGtotal, TGtotal;
+	bool done;
+
+	while (!done) {
+		
+		cout << "Enter command: ";
+		cin >> action;
+
+		
+	//		cin.clear();
+	//		cin.ignore(std::numeric_limits<std::streamsize>::max()), "\n";
+			if (action == "car") {	
+			cout << "Enter car's miles:  ";
+			
+			while(!(cin >> Cmile) ) {
+			cin.clear();
+			cin.ignore(std::numeric_limits<std::streamsize>::max()), "\n";
+			cout << "Enter car's miles: "; 
+			}
+			//cin >> Cmile;
+			CMtotal += Cmile; 
+			cout << "Enter car's gallons: ";
+			cin >> Cgal;
+			CGtotal += Cgal;
+				
+			}
+		
+
+		
+		
+
+	else	if (action == "truck") {
+			cout << "Enter truck's miles: ";
+			cin >> Tmile;
+			TMtotal += Tmile;
+			cout << "Enter truck's gallons: ";
+			cin >> Tgal;
+			TGtotal += Tgal;
+	
+		}
+
+		else if (action == "done") {
+		done = true;
+		}
+
+		else {
+			cout << "Unknown Command. " << endl;
+		}
+		
+	 		
+
+	}
+	
+	if (Cmile > 0) {
+		cout << "Average car MPG = " << CMtotal / CGtotal << endl;
+	}
+
+	else {
+		cout << "Fleet has no cars. " << endl;
+	}
+
+	if (Tmile > 0) {
+		cout << "Average truck MPG = " << TMtotal / TGtotal << endl;
+	}
+
+	else {
+		cout << "Fleet has no trucks. " << endl;
+	}
+
+
+	return 0;
+}
